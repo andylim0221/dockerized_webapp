@@ -6,9 +6,8 @@ on:
       - '*'
   pull_request:
     branches:
-      - main 
-  release:
-    types: [published, edited]
+      - main
+    types: [closed]
 
 jobs:
   run_test:
@@ -27,7 +26,7 @@ jobs:
       - run: npm test 
 
   build_and_push_to_dockerhub:
-    if: github.event_name == 'release'  
+    if: github.event.pull_request.merged == true  
     runs-on: ubuntu-latest
     steps:
       -
