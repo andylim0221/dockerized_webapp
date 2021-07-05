@@ -21,6 +21,12 @@ CONTAINER ID   IMAGE        COMMAND                  CREATED        STATUS      
 65d2f027a5cc   example1.0   "docker-entrypoint.s…"   25 hours ago   Up 25 hours   0.0.0.0:8000->8000/tcp   jolly_joliot
 ```
 
+# Clean Up 
+To stop the container, copy the container id from the terminal and run the command below:
+```
+docker stop 65d2f027a5cc
+```
+
 # Contribution
 
 Feel free to make any changes by creating your own branch from this repo. Then make a pull request to the main branch. 
