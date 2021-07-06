@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Run container"
+echo "Build container"
 
-docker pull andylim95/app:latest
-docker run -d -p 8000:8000 andylim95/app:latest
+docker build -t example .
+docker run -d -p 8000:8000 example
 docker ps
