@@ -1,6 +1,10 @@
 FROM node:12-alpine
+
 WORKDIR /app 
-COPY . . 
-RUN npm install 
+COPY package.json package-lock.json /app/
+RUN npm ci
+
+COPY src /app/src
+
 EXPOSE 8000
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
