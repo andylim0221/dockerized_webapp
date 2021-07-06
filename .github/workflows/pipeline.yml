@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - '*'
-      - '!main'
+    paths-ignore:
+      - 'README.md'
+      - 'deploy.sh'
   pull_request:
     branches:
       - main
-    types: [closed]
+  release:
+    types: [published, edited]
 
 jobs:
   run_test:
@@ -27,7 +30,7 @@ jobs:
       - run: npm test 
 
   build_and_push_to_dockerhub:
-    if: github.event.pull_request.merged == true  
+    if: github.event_name == 'release' && github.event.action == 'published'
     runs-on: ubuntu-latest
     steps:
       -
@@ -48,7 +51,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: andylim95/app:latest
+          tag_with_ref: true
+          tag_with_sha: true
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/app:latest
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
       -
