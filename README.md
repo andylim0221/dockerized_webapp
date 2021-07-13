@@ -50,7 +50,12 @@ To stop the container, copy the container id from the terminal and run the comma
 docker stop 65d2f027a5cc
 ```
 
-To remove the container image, you have to stop the container before removing the container image. Run the image below:
+To remove the container, copy the container id from the terminal and run the command below:
+```
+docker rm 65d2f027a5cc
+```
+
+To remove the container image, you have to stop and remove the container before removing the container image. Run the image below:
 ```
 docker rmi example 
 ```
