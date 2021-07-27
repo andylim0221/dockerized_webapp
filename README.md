@@ -50,7 +50,7 @@ To stop the container, run the command below:
 docker stop sample
 ```
 
-To remove the container, copy the container id from the terminal and run the command below:
+To remove the container, run the command below:
 ```
 docker rm sample
 ```
