@@ -14,26 +14,26 @@ git clone https://github.com/andylim0221/dockerized_webapp.git && cd dockerized_
 chmod +x deploy.sh
 ```
 
-This script is used to package the application in this repository according to the manifest in the Dockerfile. 
-
 3. Run the script:
 ```
 ./deploy.sh
 ```
+This script is used to package the application in this repository according to the manifest in the Dockerfile and run a docker container with name `sample`.
+
 You should see similar output in your terminal:
 ```
 CONTAINER ID   IMAGE        COMMAND                  CREATED        STATUS        PORTS                    NAMES
-65d2f027a5cc   example1.0   "docker-entrypoint.s…"   25 hours ago   Up 25 hours   0.0.0.0:8000->8000/tcp   jolly_joliot
+65d2f027a5cc   example1.0   "docker-entrypoint.s…"   25 hours ago   Up 25 hours   0.0.0.0:8000->8000/tcp   sample
 ```
 
 4. Run the below command to see the output:
 ```
 open http://localhost:8000/
 ```
-You should similar output in browser:
+You should see a similar output in browser:
 
 ```
-Hello Senior
+Hello World
 ```
 # Contribution
 
@@ -45,14 +45,14 @@ Then make a pull request to the main branch. We shall review the pull request be
 
 # Clean Up 
 
-To stop the container, copy the container id from the terminal and run the command below:
+To stop the container, run the command below:
 ```
-docker stop 65d2f027a5cc
+docker stop sample
 ```
 
 To remove the container, copy the container id from the terminal and run the command below:
 ```
-docker rm 65d2f027a5cc
+docker rm sample
 ```
 
 To remove the container image, you have to stop and remove the container before removing the container image. Run the image below:
